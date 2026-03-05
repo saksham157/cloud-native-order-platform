@@ -1,0 +1,94 @@
+# Infrastructure Provisioning Policy
+
+## Infrastructure Automation Rule
+
+All infrastructure resources in this project must be created using **Infrastructure as Code (IaC)**.
+Manual creation of resources through the AWS console or manually executed ad-hoc commands is strictly prohibited.
+
+This rule ensures:
+
+* Infrastructure consistency
+* Repeatable deployments
+* Version-controlled infrastructure
+* Auditable infrastructure changes
+* Reduced human configuration errors
+
+All infrastructure provisioning is performed using **Terraform**.
+
+---
+
+## No Manual Infrastructure Changes
+
+The following actions are **not allowed**:
+
+* Creating AWS resources manually in the console
+* Manually modifying infrastructure settings
+* Running ad-hoc commands to configure infrastructure
+* Direct changes to cloud resources outside Terraform
+
+All changes must go through the Terraform workflow.
+
+---
+
+## Standard Infrastructure Deployment Workflow
+
+Infrastructure must be deployed using the following steps:
+
+```
+terraform init
+terraform plan
+terraform apply
+```
+
+This ensures that all changes are visible before being applied.
+
+---
+
+## Remote State Management
+
+Terraform state will be stored remotely to ensure:
+
+* State consistency
+* Team collaboration
+* Safe concurrent infrastructure updates
+
+Remote backend components include:
+
+* **S3 bucket** for Terraform state storage
+* **DynamoDB table** for state locking
+
+---
+
+## Access Control and Security
+
+Access to infrastructure deployment is controlled through:
+
+* IAM roles and policies
+* Restricted AWS credentials
+* Role-based access for engineers
+
+Only authorized users are allowed to run infrastructure provisioning scripts.
+
+---
+
+## Security Best Practices
+
+The project follows the following security practices:
+
+* No hardcoded secrets in code repositories
+* Use of IAM roles instead of static credentials where possible
+* Secure storage of infrastructure state
+* Version-controlled infrastructure changes
+* Principle of least privilege for IAM policies
+
+---
+
+## Benefits of This Approach
+
+Following Infrastructure as Code and strict automation policies provides:
+
+* Reproducible infrastructure deployments
+* Improved security posture
+* Reduced configuration drift
+* Easier disaster recovery
+* Better collaboration between engineering teams
