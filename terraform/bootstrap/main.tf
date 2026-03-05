@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "terraform_state"{
 
     tags = {
     Name = "terraform state bucket"
-    Environment = dev
+    Environment = "dev"
 }
 
 }
@@ -15,7 +15,7 @@ resource "aws_s3_bucket_versioning" "state_versioning"{
     bucket = aws_s3_bucket.terraform_state.id
 
     versioning_configuration{
-        status = Enabled
+        status = "Enabled"
     }
 }
 resource "aws_s3_bucket_server_side_encryption_configuration" "state_encryption"{
@@ -23,7 +23,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "state_encryption"
 
     rule{
         apply_server_side_encryption_by_default {
-            sse_algorithum = "AES256"
+            sse_algorithm = "AES256"
         }
     }
 }
@@ -35,7 +35,7 @@ resource "aws_dynamodb_table" "terraform_lock"{
 
     attribute{
         name = "LockID"
-        type = "s"
+        type = "S"
 
 
     }
