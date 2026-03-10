@@ -13,3 +13,13 @@ variable "availability_zones"{
     type = string
 }
 
+variable "public_subnets"{
+    description = "public subnet for environment"
+    type = list(string)
+}
+
+variable "private_subnets"{
+    description = "private subnet for environment"
+    type = list(string)
+}
+
