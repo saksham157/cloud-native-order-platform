@@ -6,3 +6,18 @@ module "vpc"{
     public_subnets = var.private_subnets
     private_subnets = var.private_subnets
 }
+
+module "eks" {
+
+  source = "../../modules/eks-cluster"
+
+  environment = var.environment
+
+  cluster_role_arn = module.iam.cluster_role_arn
+  node_role_arn    = module.iam.node_role_arn
+
+  subnet_ids = module.vpc.private_subnet_ids
+
+  cluster_security_group_id = module.security-groups.cluster_security_group_id
+
+}
