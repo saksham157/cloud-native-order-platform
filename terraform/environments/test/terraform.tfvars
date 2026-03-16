@@ -1,6 +1,6 @@
 environment = "test"
 
-cidr_blocks = "11.0.0.0/16"
+cidr_block = "11.0.0.0/16"
 
 availability_zones = [
     "us-east-1a",

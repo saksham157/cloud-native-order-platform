@@ -2,7 +2,7 @@ resource "aws_route_table" "private"{
     vpc_id = aws_vpc.main.id
 
     route{
-        cidr_blocks = "0.0.0.0/0"
+        cidr_block = "0.0.0.0/0"
         natgateway_id = aws_nat_gateway.nat_gateway.id
     }
     tags = {

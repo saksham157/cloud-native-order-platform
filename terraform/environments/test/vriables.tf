@@ -2,7 +2,7 @@ variable "environment" {
     type = string
 }
 
-variable "cidr_blocks" {
+variable "cidr_block" {
     type = string
 }
 
