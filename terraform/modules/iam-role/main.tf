@@ -7,19 +7,19 @@ resource "aws_iam_role" "eks_cluster_role" {
         Version = "2012-10-17"
         Statement = [{
             Effect = "Allow"
-            Principle = {
-                Service = eks.amazonaws.com
+            Principal = {
+                Service = "eks.amazonaws.com"
             }
-            Action = {
-                "sts.AssumeRole"
-            }
+            Action = 
+                "sts:AssumeRole"
+            
         }]
     })
 }
 
 # Attach cluster Policy 
 
-resource = "aws_iam__role_policy_attachment" "eks_cluster_policy"{
+resource  "aws_iam__role_policy_attachment" "eks_cluster_policy"{
     role = aws_iam_role.eks_cluster_role.name
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 
