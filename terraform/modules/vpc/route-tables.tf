@@ -1,4 +1,4 @@
-resource = "aws_route_table" "public"{
+resource  "aws_route_table" "public"{
     vpc_id = vpc_id.main.id
 
     route{

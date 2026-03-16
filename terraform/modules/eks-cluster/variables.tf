@@ -17,7 +17,7 @@ variable "subnet_ids" {
     type = string
 }
 
-variable "security_group_id"{{
+variable "security_group_id"{
     description = "security group for EKS"
     type = string
-}}
+}
