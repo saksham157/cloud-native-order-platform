@@ -1,6 +1,6 @@
 environment = "staging"
 
-cidr_block = "12.0.0.0/16"
+cidr_blocks = "12.0.0.0/16"
 
 availability_zones = [
     "us-east-1a",
