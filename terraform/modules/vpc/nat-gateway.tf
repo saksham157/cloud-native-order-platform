@@ -1,4 +1,4 @@
-resource "aws_eip" "nat-gateway"{
+resource "aws_eip" "nat_eip"{
     domain = "vpc"
     tags = {
         Name = "${var.environment}-nat-eip"
@@ -6,10 +6,10 @@ resource "aws_eip" "nat-gateway"{
 }
 
 resource "aws_nat_gateway" "nat_gateway"{
-    allocation_id = aws_eip.nat.id
+    allocation_id = aws_eip.nat_eip.id
     subnet_id = aws_subnet.public[0].id
 
     tags = {
-        Name = "${vaar.environment}-nat-gateway"
+        Name = "${var.environment}-nat-gateway"
     }
 }

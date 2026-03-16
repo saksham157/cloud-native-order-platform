@@ -10,7 +10,7 @@ variable "environment"{
 
 variable "availability_zones"{
     description = "availability zones for subnet"
-    type = string
+    type = list(string)
 }
 
 variable "public_subnets"{
