@@ -14,10 +14,10 @@ variable "node_role_arn" {
 
 variable "subnet_ids" {
     description = "private subnet ids for EKS"
-    type = string
+    type = list(string)
 }
 
-variable "security_group_id"{
+variable "cluster_security_group_id"{
     description = "security group for EKS"
     type = string
 }

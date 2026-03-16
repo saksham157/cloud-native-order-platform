@@ -17,3 +17,8 @@ variable "public_subnets" {
 variable "private_subnets" {
     type = list(string)
 }
+
+variable "cluster_security_group_id"{
+    description = "security group for EKS"
+    type = string
+}
