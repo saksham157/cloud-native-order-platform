@@ -7,7 +7,7 @@ variable "cidr_block" {
 }
 
 variable "availability_zones" {
-    type = string
+    type = list(string)
 }
 
 variable "public_subnets" {

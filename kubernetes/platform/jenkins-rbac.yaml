@@ -1,0 +1,27 @@
+apiVersion: rbac.authorization.k8.io/v1
+Kind: Role
+metadata:
+  name: jenkins-role
+  namespace: jenkins
+
+rules:
+- apiGroups: [""]
+  resources: ["pods", "pods/logs", pods/exec]
+  verbs: ["create", "get", "lsit", "watch", "deletessss"]
+
+---
+apiVersion: rbac.authorization.k8.io/v1
+Kind: ClusterRoleBinding
+metadata:
+  name: jenkins-role
+
+roleRef:
+  apiGroup: rbac.authorization.k8.io
+  Kind: Role
+  name: jenkins-role
+  namespace: jenkins
+
+subjects:
+- Kind: ServiceAccount
+  name: jenkins
+  namespace: jenkins
