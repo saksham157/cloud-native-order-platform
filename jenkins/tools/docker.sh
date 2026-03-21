@@ -4,7 +4,7 @@ set -euo pipefail
 
 echo "=== docker setup ==="
 if command -v docker &> /dev/null; then
-  echo "terraform already installed"
+    echo "terraform already installed"
 
 fi
 

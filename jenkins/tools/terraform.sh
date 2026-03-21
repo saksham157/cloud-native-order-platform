@@ -3,8 +3,8 @@
 set -euo pipefail
  echo "=== setup terraform ==="
 
- if command -v &> /dev/null: then
-   echo "terraform already installed"
+ if command -v &> /dev/null; then
+    echo "terraform already installed"
 fi
 
 apt-get update -y

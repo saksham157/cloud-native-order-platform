@@ -5,7 +5,7 @@ set -euo pipefail
 echo "=== kubectl setup ==="
 
 if command -v &> /dev/null; then
-  echo "kubectl already installed"
+    echo "kubectl already installed"
 
 fi
 
