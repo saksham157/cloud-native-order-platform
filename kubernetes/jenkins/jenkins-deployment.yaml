@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    matadata:
+    labels:
+      app: jenkins
+    spec:
+      serviceAccountName: jenkins
+      containers:
+      - name: jenkins
+        images: jenkins/jenkins:lts 
+        ports:
+        - containerPort: 8080
+        voloumeMouunts:
+        - name:  jenkins-storage
+          mountPath: /var/jenkins_home
+      voloumes:
+      - name: jenkins-storage
+        persistentVolumeClaim:
+          claimName: jenkins-pvc
